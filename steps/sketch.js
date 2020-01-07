@@ -2,6 +2,8 @@
 var data = [];
 var maxData;
 let cnv;
+const backgroundColor = "#F5C337"
+const barColor = "#353E4D"
 
 // make sure data is loaded first
 function preload() {
@@ -43,26 +45,26 @@ function drawRadial(barValue, barDate, source) {
 
     for (var i = 0; i < barValue.length; i = i + 1) {
         push();
-          var currentData = barValue[i];
-          var currentDate = barDate[i];
-          var finalHeight = currentData / dataMultiplier * 1;
-          var animatedHeight = map(maxValue, 5, 100, 0, finalHeight);
-          translate(windowWidth / 2, windowHeight / 2);
-          rotate(180 + (angleSeparation * i));
+        var currentData = barValue[i];
+        var currentDate = barDate[i];
+        var finalHeight = currentData / dataMultiplier * 1;
+        var animatedHeight = map(maxValue, 5, 100, 0, finalHeight);
+        translate(windowWidth / 2, windowHeight / 2);
+        rotate(180 + (angleSeparation * i));
+        noStroke();
+        if (source[i] == "google") {
+            fill(barColor);
+        } else {
+            fill(250)
+        }
 
-          if (source[i] == "google") {
-              fill(250, 250, 250);
-          } else {
-              fill(200, 200, 200)
-          }
-
-          var rects = rect(0, offset, angleSeparation * 1, animatedHeight);
-          noStroke();
-          fill(250, 250, 250);
-          textSize(8);
-          // text(currentDate, offset + 200, 0);
-          translate(windowWidth / 2, windowHeight / 2);
-          rotate(angleSeparation * 1);
+        var rects = rect(0, offset, angleSeparation * 1, animatedHeight);
+        // noStroke();
+        // fill(250, 250, 250);
+        // textSize(8);
+        // text(currentDate, offset + 200, 0);
+        translate(windowWidth / 2, windowHeight / 2);
+        rotate(angleSeparation * 1);
         pop();
 
     }
@@ -72,7 +74,7 @@ function drawRadial(barValue, barDate, source) {
 
 function draw() {
 
-    background("#EEC162");
+    background(backgroundColor);
 
     //create the axis circles
     c = color('rgba(250,250,250,0.2)'); // Define color 'c'
@@ -84,7 +86,6 @@ function draw() {
     circle(windowWidth / 2, windowHeight / 2, 570); // 20,000 steps
 
 
-
     var steps = mydata.steps;
 
     var date = mydata.date;
@@ -92,21 +93,51 @@ function draw() {
     // call the function to draw the radial graph
     drawRadial(steps, date, mydata.source);
 
-    // add text
-    textFont(bolderFont)
+    ///// START TEXT BELOW /////
+
     noStroke();
     fill(250, 250, 250);
+
+    textFont(bolderFont)
     textSize(52);
+    title = text('A Year of Steps', width / 6, height - 500);
 
-    title = text('A Year of Steps', 200, height - 500);
-
-    textSize(26);
-    text('Average', width - 300, height  - 300);
+    textSize(16);
     textFont(regFont)
-    text('9,898', width - 300, height - 330);
+    body = text('Steps every day of 2019. What a time to be alive. Was it all worth it? I think so.',
+        width / 6, height - 480,
+        400, 400);
 
-    // add text in the middle
-    fill('white');
-    // text('2019', (windowWidth / 2) - 50, windowHeight / 2)
+    // start stats to the right
+    textSize(26);
+
+    push()
+    textFont(bolderFont)
+    text('Average', width - (width / 2.2), height - 470);
+    textFont(regFont)
+    text('9,898', width - (width / 2.2), height - 440);
+    pop()
+
+    push()
+    textFont(bolderFont)
+    text('Best day', width - (width / 3.2), height - 470);
+    textFont(regFont)
+    text('Dec 24th', width - (width / 3.2), height - 440);
+    pop()
+
+    push()
+    textFont(bolderFont)
+    text('Worst day', width - (width / 2.2), height - 370);
+    textFont(regFont)
+    text('Dec 1st', width - (width / 2.2), height - 340);
+    pop()
+
+    push()
+    textFont(bolderFont)
+    text('Other', width - (width / 3.2), height - 370);
+    textFont(regFont)
+    text('1,240', width - (width / 3.2), height - 340);
+    pop()
+
 
 }
