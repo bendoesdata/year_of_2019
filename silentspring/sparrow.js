@@ -5,7 +5,7 @@ let cnv;
 
 // make sure data is loaded first
 function preload() {
-    mydata = loadJSON('grasslands.json');
+    mydata = loadJSON('sparrows.json');
 }
 
 // setup the document
@@ -25,15 +25,12 @@ function drawRadial(barValue, barDate) {
     var angleSeparation = 360 / barValue.length;
     var padding = 80;
 
-    if (frameCount <= 200) {
-        maxValue = constrain(frameCount * 2, 0, 400);
-    } else {
-        maxValue = 400;
-    }
+    var offset = 140;
 
-    var offset = 120;
+    var dataMultiplier = (windowHeight / 0.5);
 
-    var dataMultiplier = (windowHeight * 0.1);
+    rotate(10);
+    translate(100, 200)
 
     for (var i = 0; i < barValue.length; i = i + 1) {
         push();
@@ -41,8 +38,8 @@ function drawRadial(barValue, barDate) {
         var currentData = barValue[i];
         var currentDate = barDate[i];
 
-        var finalHeight = currentData * (dataMultiplier / 190);
-        var animatedHeight = map(maxValue, 5, 50, 0, finalHeight);
+        var finalHeight = map(currentData, 0, 300000000, 0, 500);
+
         translate(windowWidth / 2, windowHeight / 2);
         rotate(180 + (angleSeparation * i));
 
@@ -52,7 +49,7 @@ function drawRadial(barValue, barDate) {
         //     fill(200, 200, 200)
         // }
 
-        var rects = rect(0, offset, angleSeparation * 1, animatedHeight);
+        var rects = rect(0, offset, angleSeparation * 1, finalHeight);
         noStroke();
         fill(250, 250, 250);
         textSize(8);
@@ -80,7 +77,7 @@ function draw() {
     // circle(windowWidth / 2, windowHeight / 2, 440); // 20,000 steps
     // circle(windowWidth / 2, windowHeight / 2, 580); // 20,000 steps
 
-    var loss = mydata.perc;
+    var loss = mydata.loss;
 
     var species = mydata.species;
 
