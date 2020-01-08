@@ -75,9 +75,12 @@ function draw() {
         } else if (type == "Run") {
             ring = 325;
             circFill = "rgba(42,142,157, 0.5)"
-        } else {
+        } else if (type == "Hike") {
             ring = 250;
             circFill = "rgba(255,82,69, 0.5)"
+        } else {
+            ring = 175;
+            circFill = "rgba(255,82,69, 0.2)"
         }
 
         noStroke();
