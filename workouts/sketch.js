@@ -1,6 +1,7 @@
 let mid;
 let ring;
 let day, type, distance;
+let circFill;
 
 const backgroundColor = "#2A8E9D"
 const circleColor = "#353E4D"
@@ -70,14 +71,17 @@ function draw() {
         // select the ring to draw bubble
         if (type == "Ride") {
             ring = 400;
-        } else if (type = "Run") {
+            circFill = "rgba(55,64,80, 0.5)"
+        } else if (type == "Run") {
             ring = 325;
+            circFill = "rgba(42,142,157, 0.5)"
         } else {
             ring = 250;
+            circFill = "rgba(255,82,69, 0.5)"
         }
 
         noStroke();
-        fill(30, 80);
+        fill(circFill);
         push();
         angleMode(DEGREES);
 
