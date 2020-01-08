@@ -2,8 +2,9 @@
 var data = [];
 var maxData;
 let cnv;
-const backgroundColor = "#F5C337"
+const backgroundColor = "#FFC935"
 const barColor = "#353E4D"
+const cream = '#F7F6F4'
 
 // make sure data is loaded first
 function preload() {
@@ -96,12 +97,14 @@ function draw() {
     ///// START TEXT BELOW /////
 
     noStroke();
-    fill(250, 250, 250);
+
 
     textFont(bolderFont)
     textSize(52);
+    fill(barColor);
     title = text('A Year of Steps', width / 6, height - 500);
 
+    fill(250, 250, 250);
     textSize(16);
     textFont(regFont)
     body = text('Steps every day of 2019. What a time to be alive. Was it all worth it? I think so.',
