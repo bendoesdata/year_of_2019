@@ -6,7 +6,7 @@ let name, totals, size;
 
 // make sure data is loaded first
 function preload() {
-    table = loadTable('../data/music.csv', 'csv', 'header');
+    table = loadTable('../data/music2.csv', 'csv', 'header');
     regFont = loadFont('../fonts/CircularStd-Medium.otf')
     boldFont = loadFont('../fonts/CircularStd-Bold.otf')
     bolderFont = loadFont('../fonts/CircularStd-Black.otf')
@@ -17,7 +17,7 @@ function setup() {
     height = windowHeight + 500;
 
     chartWidth = width - 100;
-    chartHeight = height - 100;
+    chartHeight = windowHeight + 50;
     createCanvas(width, height);
 
     var protection = 0;
@@ -33,8 +33,8 @@ function setup() {
           console.log(size)
 
         var circle = {
-            x: random(200, chartWidth),
-            y: random(100, chartHeight),
+            x: random(20, windowWidth-20),
+            y: random(50, chartHeight-100),
             r: size,
             artist: name
         }
@@ -43,7 +43,7 @@ function setup() {
         for (var j = 0; j < circles.length; j++) {
             var other = circles[j];
             var d = dist(circle.x, circle.y, other.x, other.y);
-            if (d < circle.r + other.r - 50) {
+            if (d < circle.r + other.r) {
                 overlapping = true;
             }
         }
@@ -53,7 +53,7 @@ function setup() {
         }
 
         protection++;
-        if (protection > 10000) {
+        if (protection > 100000) {
             break;
           }
         }
@@ -61,15 +61,16 @@ function setup() {
 
     for (var i = 0; i < circles.length; i++) {
 
-        
-        fill(random(0, 120), random(50, 120), 130, 120);
+        // draw the circles and text
+        fill(random(0, 120), random(50, 100), 190, 120);
         noStroke();
         ellipse(circles[i].x, circles[i].y, circles[i].r * 2, circles[i].r * 2);
         textSize(12);
         fill(230);
         noStroke();
-        if (circles[i].r > 60) {
-          text(circles[i].artist, circles[i].x - 10, circles[i].y - 10, 50, 50)
+        textAlign(CENTER);
+        if ((circles[i].r * 2) > 80) {
+          text(circles[i].artist, circles[i].x - 50, circles[i].y - 10, 100, 50)
         }
 
     }
