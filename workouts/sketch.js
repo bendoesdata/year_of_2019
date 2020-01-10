@@ -18,12 +18,12 @@ function preload() {
 
 function setup() {
     width = windowWidth - 20;
-    height = windowHeight + 500;
+    height = windowHeight + 400;
 
     chartWidth = width - 100;
     chartHeight = windowHeight;
 
-    createCanvas(width, height);
+    createCanvas(width, height + 400);
     background(cream);
     mid = width / 2;
     noLoop();
@@ -33,7 +33,7 @@ function setup() {
 function draw() {
     push();
     // put everything in the center
-    translate(width / 2, chartHeight / 1.8);
+    translate(width / 2, chartHeight / 1.4);
 
     // make use Jan 1 is at the top
     rotate(PI);
@@ -46,6 +46,7 @@ function draw() {
     ellipse(0, 0, 350);
     ellipse(0, 0, 500);
     ellipse(0, 0, 650);
+    ellipse(0, 0, 800);
 
     push();
     angleMode(DEGREES);
@@ -80,7 +81,7 @@ function draw() {
             circFill = "rgba(255,82,69, 0.5)"
         } else {
             ring = 175;
-            circFill = "rgba(255,82,69, 0.2)"
+            circFill = "rgba(255,82,69, 0.9)"
         }
 
         noStroke();
@@ -105,11 +106,12 @@ function draw() {
 
     ///// START TEXT BELOW /////
     noStroke();
+    height = height - 50;
 
     textFont(bolderFont)
     textSize(52);
     fill(30);
-    title = text('A Year of Running', width / 6, height - 300);
+    title = text('A Year of Workouts', width / 6, height - 300);
 
     fill(60);
     textSize(16);

@@ -20,7 +20,7 @@ function setup() {
     width = windowWidth - 20;
     height = windowHeight + 500;
 
-    chartWidth = width - 100;
+    chartWidth = width - 30;
     chartHeight = windowHeight;
 
     var canvas = createCanvas(width, height);
@@ -42,10 +42,10 @@ function drawCircles() {
         angleMode(DEGREES);
 
         // map to degrees around circle 0 - 360
-        circleSpot = map(day, 0, 360, 0, chartWidth);
+        circleSpot = map(day, 0, 360, 30, chartWidth);
 
         // map the size of circle
-        let size = map(distance, 0, 13, 5, 80);
+        let size = map(distance, 0, 13, 2, 50);
 
         ellipse(circleSpot, chartHeight / 2, size);
         textSize(10);
@@ -117,6 +117,5 @@ function draw() {
     textFont(regFont)
     text('1,240', width - (width / 3.2), height - 340);
     pop()
-
 
 }

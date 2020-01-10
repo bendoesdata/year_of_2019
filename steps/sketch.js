@@ -2,7 +2,7 @@
 var data = [];
 var maxData;
 let cnv;
-const backgroundColor = "#FFC935"
+const backgroundColor = "#fcc335"
 const barColor = "#353E4D"
 const cream = '#F7F6F4'
 
@@ -77,14 +77,22 @@ function draw() {
 
     background(backgroundColor);
 
-    //create the axis circles
-    c = color('rgba(250,250,250,0.2)'); // Define color 'c'
+    //create the axis circlesrgb(255, 201, 53)
+    c = color('rgba(60, 67, 76,0.15)'); // Define color 'c'
     noFill();
     stroke(c);
     strokeWeight(1);
     circle(windowWidth / 2, windowHeight / 2, 290); // 10,000 steps
     circle(windowWidth / 2, windowHeight / 2, 430); // 20,000 steps
     circle(windowWidth / 2, windowHeight / 2, 570); // 20,000 steps
+
+      c = color('rgba(60, 67, 76,0.8)'); // Define color 'c'
+    fill(c);
+    noStroke();
+    textSize(12);
+    text('10k', windowWidth- 550, windowHeight / 2)
+    text('20k', windowWidth- 480, windowHeight / 2)
+    text('30k', windowWidth- 410, windowHeight / 2)
 
 
     var steps = mydata.steps;
