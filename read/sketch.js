@@ -1,14 +1,14 @@
 let mid;
 let ring;
 let bookDay, numPages, rating, title;
+let months = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
 
 function preload() {
-  //my table is comma separated value "csv"
-  //and has a header specifying the columns labels
-  table = loadTable('jonny.csv', 'csv', 'header');
-  //the file can be remote
-  //table = loadTable("http://p5js.org/reference/assets/mammals.csv",
-  //                  "csv", "header");
+    regFont = loadFont('../fonts/Lato/Lato-Regular.ttf')
+    boldFont = loadFont('../fonts/Lato/Lato-Bold.ttf')
+    bolderFont = loadFont('../fonts/Lato/Lato-Black.ttf')
+    table = loadTable('jonny.csv', 'csv', 'header');
+
 }
 
 function setup() {
@@ -24,12 +24,9 @@ function draw() {
     // put everything in the center
     translate(width / 2, height / 2);
 
-    // make use Jan 1 is at the top
-    rotate(PI);
-
     // make the axis
-    stroke(210);
-    strokeWeight(1);
+    stroke(180);
+    strokeWeight(0.5);
     noFill();
     //ellipse(0, 0, 200);
     ellipse(0, 0, 350);
@@ -37,57 +34,94 @@ function draw() {
     ellipse(0, 0, 650);
     ellipse(0, 0, 800);
 
+
+    push();
+    fill(160);
+    textSize(12);
+    text('2 ★', 0, -180);
+    text('3 ★', 0, -260);
+    text('4 ★', 0, -330);
+    text('5 ★', 0, -410);
+
+    push();
+    fill(30, 50)
+    let monthMark = 0;
+    rotate(0.25)
+    textAlign(CENTER);
+    textSize(10);
+    // draw tick marks for months
+    for (let z = 1; z < 13; z++) {
+        let wordSpace = 0.52;
+        rotate(monthMark);
+        monthMark = wordSpace;
+        text(months[z], 0, -420);
+    }
+
+    pop();
+
+    textFont(boldFont);
+    fill(80)
+    textSize(82);
+    textAlign(CENTER);
+    text('72', 0, -10);
+    textSize(32);
+    textFont(regFont);
+    text('books in 2019', 0, 30);
+    pop();
+
+    // make use Jan 1 is at the top
+    rotate(PI);
+
+
     push();
     angleMode(DEGREES);
     stroke(150);
     strokeWeight(1);
-
+    let tickMark = 0;
     // draw tick marks for months
-    for (let z = 0; z < 13; z++) {
-      let tickMark = map(z, 0, 13, 0, 360);
-      rotate(tickMark);
-      line(0, 400, 0, 410);
+    for (let z = 1; z < 13; z++) {
+        let monthSpace = 360 / 12;
+        rotate(tickMark);
+        tickMark = monthSpace;
+        line(0, 400, 0, 410);
     }
-
 
     pop();
 
-      //cycle through the table and store values
-  for (let r = 0; r < table.getRowCount(); r++) {
-      title  = table.getString(r, 0);
-      bookDay  = table.getNum(r, 2);
-      rating  = table.getNum(r, 3);
-      numPages  = table.getNum(r, 4);
+    //cycle through the table and store values
+    for (let r = 0; r < table.getRowCount(); r++) {
+        title = table.getString(r, 0);
+        bookDay = table.getNum(r, 2);
+        rating = table.getNum(r, 3);
+        numPages = table.getNum(r, 4);
 
-      //print(title + ' ' + numPages)
+        // select the ring to draw bubble
+        if (rating == 5) {
+            ring = 400;
+        } else if (rating == 4) {
+            ring = 325;
+        } else if (rating == 3) {
+            ring = 250;
+        } else if (rating == 2) {
+            ring = 175;
+        }
 
-      // select the ring to draw bubble
-      if (rating == 5) {
-        ring = 400;
-      } else if (rating == 4) {
-        ring = 325;
-      } else if (rating == 3) {
-        ring = 250;
-      } else if (rating ==2) {
-        ring = 175;
-      }
-
-      noStroke();
-      fill(30, 80);
-      push();
+        noStroke();
+        fill(30, 140);
+        push();
         angleMode(DEGREES);
 
         // map to degrees around circle 0 - 360
         circleSpot = map(bookDay, 0, 360, 0, 360);
 
         // map the size of circle
-        let size = map(numPages, 0, 1200, 10, 100);
+        let size = map(numPages, 0, 1200, 10, 130);
 
         rotate(circleSpot);
         ellipse(0, ring, size);
         textSize(10);
         //text(title, 0, ring);
-      pop();
+        pop();
     }
 
 }

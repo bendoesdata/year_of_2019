@@ -74,7 +74,6 @@ function draw() {
 
     noStroke();
 
-
     textFont(bolderFont)
     textSize(52);
     fill(circleColor);
