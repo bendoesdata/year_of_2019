@@ -1,6 +1,6 @@
 let mid;
 let ring;
-let bookDay, numPages, rating, title;
+let bookDay, numPages, rating, title, star;
 let months = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
 
 function preload() {
@@ -8,6 +8,7 @@ function preload() {
     boldFont = loadFont('../fonts/Lato/Lato-Bold.ttf')
     bolderFont = loadFont('../fonts/Lato/Lato-Black.ttf')
     table = loadTable('jonny.csv', 'csv', 'header');
+    star = loadImage('star.png')
 
 }
 
@@ -38,15 +39,19 @@ function draw() {
     push();
     fill(160);
     textSize(12);
-    text('2 ★', 0, -180);
-    text('3 ★', 0, -260);
-    text('4 ★', 0, -330);
-    text('5 ★', 0, -410);
+    text('2', 0, -180);
+    image(star, 10, -189, 10, 10 );
+    text('3', 0, -260);
+    image(star, 10, -269, 10, 10 );
+    text('4', 0, -330);
+    image(star, 10, -340, 10, 10 );
+    text('5', 0, -410);
+    image(star, 10, -419, 10, 10 );
 
     push();
     fill(30, 50)
     let monthMark = 0;
-    rotate(0.25)
+    rotate(0.28)
     textAlign(CENTER);
     textSize(10);
     // draw tick marks for months
@@ -66,7 +71,7 @@ function draw() {
     text('72', 0, -10);
     textSize(32);
     textFont(regFont);
-    text('books in 2019', 0, 30);
+    text('books', 0, 30);
     pop();
 
     // make use Jan 1 is at the top
@@ -107,7 +112,7 @@ function draw() {
         }
 
         noStroke();
-        fill(30, 140);
+        fill('rgba(54, 34, 18,0.5)');
         push();
         angleMode(DEGREES);
 
@@ -115,7 +120,7 @@ function draw() {
         circleSpot = map(bookDay, 0, 360, 0, 360);
 
         // map the size of circle
-        let size = map(numPages, 0, 1200, 10, 130);
+        let size = map(numPages, 0, 1200, 10, 140);
 
         rotate(circleSpot);
         ellipse(0, ring, size);
