@@ -74,47 +74,55 @@ function draw() {
 
     noStroke();
 
-    textFont(bolderFont)
-    textSize(52);
-    fill(circleColor);
-    title = text('A Year of Running', width / 6, height - 500);
+    fill(240)
+    textFont(boldFont);
+    textAlign(LEFT)
+    textSize(22);
+    text('A year of', width / 6, height - 580);
+    textFont(bolderFont);
+    textSize(76);
+    title = text('Running', (width / 6) - 5, height - 510);
 
     fill(250, 250, 250);
-    textSize(16);
+    textSize(18);
     textFont(regFont)
-    body = text('Steps every day of 2019. What a time to be alive. Was it all worth it? I think so.',
-        width / 6, height - 480, // position
-        400, 400); // wrap size
+
+    if (windowWidth > 800) {
+        body = text('Steps every day of 2019. What a time to be alive. Was it all worth it? I think so.',
+            width / 6, height - 480,
+            400, 400);
+    }
+
 
     // start stats to the right
     textSize(26);
 
     push()
     textFont(bolderFont)
-    text('Average', width - (width / 2.2), height - 470);
+    text('Average', width - (width / 2.2), height - 460);
     textFont(regFont)
-    text('9,898', width - (width / 2.2), height - 440);
+    text('9,898', width - (width / 2.2), height - 430);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Best day', width - (width / 3.2), height - 470);
+    text('Best day', width - (width / 3.2), height - 460);
     textFont(regFont)
-    text('Dec 24th', width - (width / 3.2), height - 440);
+    text('Dec 24th', width - (width / 3.2), height - 430);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Worst day', width - (width / 2.2), height - 370);
+    text('Worst day', width - (width / 2.2), height - 360);
     textFont(regFont)
-    text('Dec 1st', width - (width / 2.2), height - 340);
+    text('Dec 1st', width - (width / 2.2), height - 330);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Other', width - (width / 3.2), height - 370);
+    text('Other', width - (width / 3.2), height - 360);
     textFont(regFont)
-    text('1,240', width - (width / 3.2), height - 340);
+    text('1,240', width - (width / 3.2), height - 330);
     pop()
 
 }
