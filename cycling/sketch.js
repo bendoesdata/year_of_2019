@@ -10,7 +10,7 @@ const cream = '#F7F6F4'
 function preload() {
     //my table is comma separated value "csv"
     //and has a header specifying the columns labels
-    table = loadTable('../data/workouts_clean_2.csv', 'csv', 'header');
+    table = loadTable('../data/cycle_clean.csv', 'csv', 'header');
     regFont = loadFont('../fonts/CircularStd-Medium.otf')
     boldFont = loadFont('../fonts/CircularStd-Bold.otf')
     bolderFont = loadFont('../fonts/CircularStd-Black.otf')
@@ -32,32 +32,36 @@ function setup() {
 
 function draw() {
     push();
-    // put everything in the center
-    translate(width / 2, chartHeight / 1.4);
-
-    // make use Jan 1 is at the top
-    rotate(PI);
-
     // make the axis
     stroke(210);
-    strokeWeight(1);
+    strokeWeight(2);
     noFill();
+
+    // put everything in the center
+    translate(width / 2, chartHeight / 1.4);
+    arc(0, 0, 800, 800, PI, TWO_PI)
+
+    // make use Jan 1 is at the top
+    rotate(HALF_PI);
+
     //ellipse(0, 0, 200);
-    ellipse(0, 0, 350);
-    ellipse(0, 0, 500);
-    ellipse(0, 0, 650);
-    ellipse(0, 0, 800);
+    // ellipse(0, 0, 350);
+    // ellipse(0, 0, 650);
+
+    // ellipse(0, 0, 800);
 
     push();
     angleMode(DEGREES);
     stroke(150);
     strokeWeight(1);
+    let tickMark = 0;
 
     // draw tick marks for months
     for (let z = 0; z < 13; z++) {
-        let tickMark = map(z, 0, 13, 0, 360);
+        let monthSpace = 180 / 12;
         rotate(tickMark);
-        line(0, 400, 0, 410);
+        tickMark = monthSpace;
+        line(0, 500, 0, 510);
     }
 
 
@@ -71,7 +75,7 @@ function draw() {
 
         // select the ring to draw bubble
         if (type == "Ride") {
-            ring = 400;
+            ring = 480;
             circFill = "rgba(55,64,80, 0.5)"
         } else if (type == "Run") {
             ring = 325;
@@ -90,10 +94,10 @@ function draw() {
         angleMode(DEGREES);
 
         // map to degrees around circle 0 - 360
-        let circleSpot = map(day, 0, 360, 0, 360);
+        let circleSpot = map(day, 0, 360, 0, 180);
 
         // map the size of circle
-        let size = map(distance, 0, 20, 10, 100);
+        let size = map(distance, 0, 50, 5, 80);
 
         rotate(circleSpot);
         ellipse(0, ring, size);

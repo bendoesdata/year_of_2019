@@ -1,4 +1,4 @@
-day_computed,SUM of date,SUM of time,SUM of distance,SUM of elapsed_time
+day_computed,AVERAGE of date,SUM of time,SUM of distance,SUM of elapsed_time
 6,Jan 6,10:01:53 AM,6.79,2406
 8,Jan 8,7:35:53 PM,5.42,2421
 13,Jan 13,2:35:46 PM,5.31,3209
@@ -48,7 +48,7 @@ day_computed,SUM of date,SUM of time,SUM of distance,SUM of elapsed_time
 228,Aug 15,10:38:31 AM,4.85,1819
 230,Aug 17,12:31:21 PM,9.87,4425
 232,Aug 19,10:55:01 AM,4.84,1426
-233,Apr 11,9:45:34 PM,9.1,3727
+233,Aug 20,9:45:34 PM,9.1,3727
 235,Aug 22,10:25:09 AM,4.82,1538
 236,Aug 23,6:09:42 AM,4.05,1236
 239,Aug 26,10:38:10 AM,4.85,1452
@@ -67,7 +67,7 @@ day_computed,SUM of date,SUM of time,SUM of distance,SUM of elapsed_time
 282,Oct 8,10:04:06 PM,4.93,1577
 290,Oct 16,11:12:40 AM,4.85,1503
 295,Oct 21,11:44:02 AM,5.05,2318
-301,Aug 25,11:05:34 AM,8.21,3535
+301,Oct 27,11:05:34 AM,8.21,3535
 305,Oct 31,12:15:21 PM,5.46,1821
 310,Nov 5,1:14:20 PM,5.28,2335
 316,Nov 11,11:50:34 AM,6.78,2175
@@ -75,3 +75,4 @@ day_computed,SUM of date,SUM of time,SUM of distance,SUM of elapsed_time
 334,Nov 29,5:38:26 PM,4.29,2614
 359,Dec 24,4:39:40 PM,4.11,1911
 361,Dec 26,1:37:05 PM,3.6,2191
+Grand Total,Jul 15,6:20:37 PM,444.13,187783
