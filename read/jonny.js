@@ -40,13 +40,13 @@ function draw() {
     fill(160);
     textSize(12);
     text('2', 0, -180);
-    image(star, 10, -189, 10, 10 );
+    image(star, 10, -189, 10, 10);
     text('3', 0, -260);
-    image(star, 10, -269, 10, 10 );
+    image(star, 10, -269, 10, 10);
     text('4', 0, -330);
-    image(star, 10, -340, 10, 10 );
+    image(star, 10, -340, 10, 10);
     text('5', 0, -410);
-    image(star, 10, -419, 10, 10 );
+    image(star, 10, -419, 10, 10);
 
     push();
     fill(30, 50)
@@ -61,7 +61,6 @@ function draw() {
         monthMark = wordSpace;
         text(months[z], 0, -420);
     }
-
     pop();
 
     textFont(boldFont);

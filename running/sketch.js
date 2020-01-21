@@ -3,6 +3,7 @@ let cnv;
 let mid;
 let width, height, chartWidth, chartHeight;
 let day, distance;
+let months = ['', 'Jan', '', 'Mar', '', 'May', '', 'July', '', 'Sept', '', 'Nov', ''];
 const backgroundColor = "#2A8E9D"
 const circleColor = "#353E4D"
 const cream = '#F7F6F4'
@@ -65,7 +66,27 @@ function draw() {
     stroke(c);
     strokeWeight(1);
 
-    line(0, chartHeight / 2, windowWidth, chartHeight / 2)
+    line(0, chartHeight / 2, windowWidth, chartHeight / 2);
+
+    let startTick = 30;
+    let divisor = chartWidth / 12;
+    // draw tick marks for months
+    for (let z = 0; z < 13; z++) {
+        line(startTick, (chartHeight / 2) - 10, startTick, (chartHeight / 2) + 10);
+        startTick = startTick + divisor;
+    }
+
+    push();
+    noStroke();
+    fill(230, 80);
+    textSize(10);
+    // add month labels
+    let labelSpot = 75;
+    for (let z = 1; z < 13; z++) {
+        text(months[z], labelSpot, (chartHeight / 2) + 40);
+        labelSpot = labelSpot + divisor;
+    }
+    pop();
 
     // call the function to draw chart
     drawCircles();

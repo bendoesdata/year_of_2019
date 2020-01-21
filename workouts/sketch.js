@@ -2,6 +2,7 @@ let mid;
 let ring;
 let day, type, distance;
 let circFill;
+let months = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
 const backgroundColor = "#2A8E9D"
 const circleColor = "#353E4D"
@@ -21,9 +22,9 @@ function setup() {
     height = windowHeight + 400;
 
     chartWidth = width - 100;
-    chartHeight = windowHeight;
+    chartHeight = windowHeight - 200;
 
-    createCanvas(width, height + 400);
+    createCanvas(width, height + 200);
     background(cream);
     mid = width / 2;
     noLoop();
@@ -34,9 +35,6 @@ function draw() {
     push();
     // put everything in the center
     translate(width / 2, chartHeight / 1.4);
-
-    // make use Jan 1 is at the top
-    rotate(PI);
 
     // make the axis
     stroke(210);
@@ -49,17 +47,35 @@ function draw() {
     ellipse(0, 0, 800);
 
     push();
+    fill(30, 50)
+    let monthMark = 0;
+    rotate(0.28)
+    textAlign(CENTER);
+    textSize(10);
+    // draw tick marks for months
+    for (let z = 1; z < 13; z++) {
+        let wordSpace = 0.52;
+        rotate(monthMark);
+        monthMark = wordSpace;
+        text(months[z], 0, -420);
+    }
+    pop();
+
+    // make use Jan 1 is at the top
+    rotate(PI);
+
+    push();
     angleMode(DEGREES);
     stroke(150);
     strokeWeight(1);
-
+    let tickMark = 0;
     // draw tick marks for months
-    for (let z = 0; z < 13; z++) {
-        let tickMark = map(z, 0, 13, 0, 360);
+    for (let z = 1; z < 13; z++) {
+        let monthSpace = 360 / 12;
         rotate(tickMark);
+        tickMark = monthSpace;
         line(0, 400, 0, 410);
     }
-
 
     pop();
 

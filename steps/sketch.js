@@ -2,6 +2,7 @@
 var data = [];
 var maxData;
 let cnv;
+let months = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];;
 const backgroundColor = "#fcc335"
 const barColor = "#353E4D"
 const estColor = "#cccccc"
@@ -44,6 +45,20 @@ function drawRadial(barValue, barDate, source) {
     var maxData = 1;
     var dataMultiplier = (windowHeight / 1 - offset - padding) / maxData;
 
+    push();
+    fill(30, 50)
+    let monthMark = 0;
+    rotate(0.28)
+    textAlign(CENTER);
+    textSize(10);
+    // draw tick marks for months
+    for (let z = 1; z < 13; z++) {
+        let wordSpace = 0.52;
+        rotate(monthMark);
+        monthMark = wordSpace;
+        text(months[z], 0, -420);
+    }
+    pop();
 
     for (var i = 0; i < barValue.length; i = i + 1) {
         push();
