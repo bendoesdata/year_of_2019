@@ -97,7 +97,7 @@ function draw() {
             circFill = "rgba(255,82,69, 0.5)"
         } else {
             ring = 175;
-            circFill = "rgba(255,82,69, 0.9)"
+            circFill = "rgba(252, 195, 53, 0.6)"
         }
 
         noStroke();

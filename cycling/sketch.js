@@ -3,8 +3,7 @@ let ring;
 let day, type, distance;
 let circFill;
 
-const backgroundColor = "#2A8E9D"
-const circleColor = "#353E4D"
+const backgroundColor = "rgba(55,64,80, 1)"
 const cream = '#F7F6F4'
 
 function preload() {
@@ -24,7 +23,7 @@ function setup() {
     chartHeight = windowHeight;
 
     createCanvas(width, height + 400);
-    background(cream);
+    background(backgroundColor);
     mid = width / 2;
     noLoop();
     angleMode(RADIANS);
@@ -33,13 +32,13 @@ function setup() {
 function draw() {
     push();
     // make the axis
-    stroke(210);
-    strokeWeight(2);
+    stroke(210, 50);
+    strokeWeight(1);
     noFill();
 
     // put everything in the center
     translate(width / 2, chartHeight / 1.4);
-    arc(0, 0, 800, 800, PI, TWO_PI)
+    arc(0, 0, 960, 960, PI, TWO_PI)
 
     // make use Jan 1 is at the top
     rotate(HALF_PI);
@@ -89,7 +88,7 @@ function draw() {
         }
 
         noStroke();
-        fill(circFill);
+        fill(230, 80);
         push();
         angleMode(DEGREES);
 
@@ -114,10 +113,10 @@ function draw() {
 
     textFont(bolderFont)
     textSize(52);
-    fill(30);
+    fill(230);
     title = text('A Year of Workouts', width / 6, height - 300);
 
-    fill(60);
+    fill(230);
     textSize(16);
     textFont(regFont)
     body = text('Steps every day of 2019. What a time to be alive. Was it all worth it? I think so.',
