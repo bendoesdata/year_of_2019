@@ -40,23 +40,47 @@ function draw() {
     // put everything in the center
     translate(chartWidth / 2, chartHeight / 2);
 
-    ///// START TEXT BELOW /////
+    ///// LEGEND /////
+
     noStroke();
+    fill(120)
+    textSize(12)
+    text('productivity', (width / 3) - 45, chartHeight - 515);
+    textSize(10)
+    text('low', (width / 3) - 65, chartHeight - 490);
+    text('high', (width / 3) + 20, chartHeight - 490);
+    fill(c0)
+    rect((width / 3), chartHeight - 500, 15, 5)
+    fill(c1)
+    rect((width / 3) - 15, chartHeight - 500, 15, 5)
+    fill(c2)
+    rect((width / 3) - 30, chartHeight - 500, 15, 5)
+    fill(c3)
+    rect((width / 3) - 45, chartHeight - 500, 15, 5)
+
+    fill(120)
+    textSize(12)
+    text('duration (mins)', (width / 3) + 80, chartHeight - 515);
+    rect((width / 3) + 80, chartHeight - 500, 45, 3)
+    rect((width / 3) + 90, chartHeight - 495, 20, 3)
+    rect((width / 3) + 96, chartHeight - 490, 10, 3)
+
+    ///// START TEXT BELOW /////
     height = height - 50;
     fill(30);
 
     textFont(boldFont);
     textAlign(LEFT)
     textSize(22);
-    text('A year of', (-width / 5), chartHeight - 480);
+    text('A year of', (-width / 4), chartHeight - 480);
     textFont(bolderFont);
     textSize(76);
-    title = text('Workouts', (-width / 5) - 5, chartHeight - 410);
+    title = text('Laptop time', (-width / 4) - 5, chartHeight - 410);
 
     fill(30);
     textSize(16);
     textFont(regFont)
-    body = text('Depressing that my top site was Gmail', -width / 5, chartHeight - 380, // position
+    body = text('Depressing that my top site was Gmail', -width / 4, chartHeight - 380, // position
         400, 400); // wrap size
 
     // start stats to the right
