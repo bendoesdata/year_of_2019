@@ -23,39 +23,39 @@ function setup() {
     var protection = 0;
 
     while (circles.length < 100) {
-      for (let r = 0; r < table.getRowCount(); r++) {
-          name = table.getString(r, 0);
-          totals = table.getNum(r, 1);
-          noStroke();
-          fill(230, 80);
-          // map the size of circle
-          size = map(totals, 0, 500, 0, 200);
-          console.log(size)
+        for (let r = 0; r < table.getRowCount(); r++) {
+            name = table.getString(r, 0);
+            totals = table.getNum(r, 1);
+            noStroke();
+            fill(230, 80);
+            // map the size of circle
+            size = map(totals, 0, 500, 0, 200);
+            console.log(size)
 
-        var circle = {
-            x: random(20, windowWidth-20),
-            y: random(50, chartHeight-100),
-            r: size,
-            artist: name
-        }
-
-        var overlapping = false;
-        for (var j = 0; j < circles.length; j++) {
-            var other = circles[j];
-            var d = dist(circle.x, circle.y, other.x, other.y);
-            if (d < circle.r + other.r) {
-                overlapping = true;
+            var circle = {
+                x: random(20, windowWidth - 20),
+                y: random(50, chartHeight - 100),
+                r: size,
+                artist: name
             }
-        }
 
-        if (!overlapping) {
-            circles.push(circle);
-        }
+            var overlapping = false;
+            for (var j = 0; j < circles.length; j++) {
+                var other = circles[j];
+                var d = dist(circle.x, circle.y, other.x, other.y);
+                if (d < circle.r + other.r) {
+                    overlapping = true;
+                }
+            }
 
-        protection++;
-        if (protection > 100000) {
-            break;
-          }
+            if (!overlapping) {
+                circles.push(circle);
+            }
+
+            protection++;
+            if (protection > 100000) {
+                break;
+            }
         }
     }
 
@@ -70,9 +70,60 @@ function setup() {
         noStroke();
         textAlign(CENTER);
         if ((circles[i].r * 2) > 80) {
-          text(circles[i].artist, circles[i].x - 50, circles[i].y - 10, 100, 50)
+            text(circles[i].artist, circles[i].x - 50, circles[i].y - 10, 100, 50)
         }
 
     }
+
+    ///// START TEXT BELOW /////
+    noStroke();
+    height = height - 50;
+    fill(60);
+
+    textFont(boldFont);
+    textAlign(LEFT)
+    textSize(22);
+    text('A year of', width / 6, height - 380);
+    textFont(bolderFont);
+    textSize(76);
+    title = text('Music', (width / 6) - 5, height - 310);
+
+    fill(60);
+    textSize(16);
+    textFont(regFont)
+    body = text('Steps every day of 2019. What a time to be alive. Was it all worth it? I think so.',
+        width / 6, height - 280, // position
+        400, 400); // wrap size
+
+    // start stats to the right
+    textSize(26);
+
+    push()
+    textFont(bolderFont)
+    text('Top artist', width - (width / 2.2), height - 270);
+    textFont(regFont)
+    text('Lauv', width - (width / 2.2), height - 235);
+    pop()
+
+    push()
+    textFont(bolderFont)
+    text('Top album', width - (width / 3.2), height - 270);
+    textFont(regFont)
+    text('Good Thing (Leon Bridges)', width - (width / 3.2), height - 235);
+    pop()
+
+    push()
+    textFont(bolderFont)
+    text('Top song', width - (width / 2.2), height - 170);
+    textFont(regFont)
+    text('Bad Bad News', width - (width / 2.2), height - 135);
+    pop()
+
+    push()
+    textFont(bolderFont)
+    text('Most feels', width - (width / 3.2), height - 170);
+    textFont(regFont)
+    text('Dawes', width - (width / 3.2), height - 135);
+    pop()
 
 }

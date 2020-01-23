@@ -124,10 +124,13 @@ function draw() {
     noStroke();
     height = height - 50;
 
-    textFont(bolderFont)
-    textSize(52);
-    fill(30);
-    title = text('A Year of Workouts', width / 6, height - 300);
+    textFont(boldFont);
+    textAlign(LEFT)
+    textSize(22);
+    text('A year of', width / 6, height - 380);
+    textFont(bolderFont);
+    textSize(76);
+    title = text('Workouts', (width / 6) - 5, height - 310);
 
     fill(60);
     textSize(16);
@@ -143,28 +146,28 @@ function draw() {
     textFont(bolderFont)
     text('Average', width - (width / 2.2), height - 270);
     textFont(regFont)
-    text('9,898', width - (width / 2.2), height - 240);
+    text('9,898', width - (width / 2.2), height - 235);
     pop()
 
     push()
     textFont(bolderFont)
     text('Best day', width - (width / 3.2), height - 270);
     textFont(regFont)
-    text('Dec 24th', width - (width / 3.2), height - 240);
+    text('Dec 24th', width - (width / 3.2), height - 235);
     pop()
 
     push()
     textFont(bolderFont)
     text('Worst day', width - (width / 2.2), height - 170);
     textFont(regFont)
-    text('Dec 1st', width - (width / 2.2), height - 140);
+    text('Dec 1st', width - (width / 2.2), height - 135);
     pop()
 
     push()
     textFont(bolderFont)
     text('Other', width - (width / 3.2), height - 170);
     textFont(regFont)
-    text('1,240', width - (width / 3.2), height - 140);
+    text('1,240', width - (width / 3.2), height - 135);
     pop()
 
 }

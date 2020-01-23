@@ -120,30 +120,30 @@ function draw() {
 
     push()
     textFont(bolderFont)
-    text('Average', width - (width / 2.2), height - 460);
+    text('Longest run', width - (width / 2.2), height - 460);
     textFont(regFont)
-    text('9,898', width - (width / 2.2), height - 430);
+    text('7.7 mi', width - (width / 2.2), height - 425);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Best day', width - (width / 3.2), height - 460);
+    text('Total miles', width - (width / 3.2), height - 460);
     textFont(regFont)
-    text('Dec 24th', width - (width / 3.2), height - 430);
+    text('275', width - (width / 3.2), height - 425);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Worst day', width - (width / 2.2), height - 360);
+    text('Avg distance', width - (width / 2.2), height - 360);
     textFont(regFont)
-    text('Dec 1st', width - (width / 2.2), height - 330);
+    text('3.6 mi', width - (width / 2.2), height - 325);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Other', width - (width / 3.2), height - 360);
+    text('Best month', width - (width / 3.2), height - 360);
     textFont(regFont)
-    text('1,240', width - (width / 3.2), height - 330);
+    text('August', width - (width / 3.2), height - 325);
     pop()
 
 }

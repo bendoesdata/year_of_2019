@@ -110,11 +110,13 @@ function draw() {
     ///// START TEXT BELOW /////
     noStroke();
     height = height - 50;
-
-    textFont(bolderFont)
-    textSize(52);
-    fill(230);
-    title = text('A Year of Workouts', width / 6, height - 300);
+    textFont(boldFont);
+    textAlign(LEFT)
+    textSize(22);
+    text('A year of', width / 6, height - 580);
+    textFont(bolderFont);
+    textSize(76);
+    title = text('Cycling', (width / 6) - 5, height - 510);
 
     fill(230);
     textSize(16);
@@ -128,30 +130,30 @@ function draw() {
 
     push()
     textFont(bolderFont)
-    text('Average', width - (width / 2.2), height - 270);
+    text('Longest ride', width - (width / 2.2), height - 270);
     textFont(regFont)
-    text('9,898', width - (width / 2.2), height - 240);
+    text('36 mi', width - (width / 2.2), height - 240);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Best day', width - (width / 3.2), height - 270);
+    text('Total miles', width - (width / 3.2), height - 270);
     textFont(regFont)
-    text('Dec 24th', width - (width / 3.2), height - 240);
+    text('688', width - (width / 3.2), height - 240);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Worst day', width - (width / 2.2), height - 170);
+    text('Avg distance', width - (width / 2.2), height - 170);
     textFont(regFont)
-    text('Dec 1st', width - (width / 2.2), height - 140);
+    text('2.5 mi', width - (width / 2.2), height - 140);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Other', width - (width / 3.2), height - 170);
+    text('Most common ride', width - (width / 3.2), height - 170);
     textFont(regFont)
-    text('1,240', width - (width / 3.2), height - 140);
+    text('Home --> Greentown Labs', width - (width / 3.2), height - 140);
     pop()
 
 }

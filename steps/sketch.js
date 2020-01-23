@@ -148,30 +148,30 @@ function draw() {
 
     push()
     textFont(bolderFont)
-    text('Average', width - (width / 2.2), height - 460);
+    text('Total', width - (width / 2.2), height - 460);
     textFont(regFont)
-    text('9,898', width - (width / 2.2), height - 430);
+    text('2,267 mi', width - (width / 2.2), height - 425);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Best day', width - (width / 3.2), height - 460);
+    text('Daily avg', width - (width / 3.2), height - 460);
     textFont(regFont)
-    text('Dec 24th', width - (width / 3.2), height - 430);
+    text('12,144 steps', width - (width / 3.2), height - 425);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Worst day', width - (width / 2.2), height - 360);
+    text('Best day', width - (width / 2.2), height - 360);
     textFont(regFont)
-    text('Dec 1st', width - (width / 2.2), height - 330);
+    text('Dec 7th', width - (width / 2.2), height - 325);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Other', width - (width / 3.2), height - 360);
+    text('Top distance', width - (width / 3.2), height - 360);
     textFont(regFont)
-    text('1,240', width - (width / 3.2), height - 330);
+    text('34,140 steps', width - (width / 3.2), height - 325);
     pop()
 
 

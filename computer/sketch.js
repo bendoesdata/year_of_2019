@@ -20,18 +20,68 @@ c3 = '#ff5245'
 const cream = '#F7F6F4'
 
 function setup() {
-  width = windowWidth - 20;
-  height = windowHeight + 400;
+    width = windowWidth - 20;
+    height = windowHeight + 400;
 
-  chartWidth = width - 100;
-  chartHeight = windowHeight;
+    chartWidth = width - 100;
+    chartHeight = windowHeight;
 
-  createCanvas(width, height + 400);
-  background(cream);
-  noLoop();
-  angleMode(RADIANS);
-  strokeCap(SQUARE);
-  offset = random(10, 50);
+    createCanvas(width, height + 400);
+    background(cream);
+    noLoop();
+    angleMode(RADIANS);
+    strokeCap(SQUARE);
+    offset = random(10, 50);
+
+    ///// START TEXT BELOW /////
+    noStroke();
+    height = height - 50;
+
+    textFont(boldFont);
+    textAlign(LEFT)
+    textSize(22);
+    text('A year of', width / 6, height - 380);
+    textFont(bolderFont);
+    textSize(76);
+    title = text('Workouts', (width / 6) - 5, height - 310);
+
+    fill(60);
+    textSize(16);
+    textFont(regFont)
+    body = text('Steps every day of 2019. What a time to be alive. Was it all worth it? I think so.',
+        width / 6, height - 280, // position
+        400, 400); // wrap size
+
+    // start stats to the right
+    textSize(26);
+
+    push()
+    textFont(bolderFont)
+    text('Avg productivity', width - (width / 2.2), height - 270);
+    textFont(regFont)
+    text('+0.7', width - (width / 2.2), height - 240);
+    pop()
+
+    push()
+    textFont(bolderFont)
+    text('Top site', width - (width / 3.2), height - 270);
+    textFont(regFont)
+    text('Gmail', width - (width / 3.2), height - 240);
+    pop()
+
+    push()
+    textFont(bolderFont)
+    text('Best day', width - (width / 2.2), height - 170);
+    textFont(regFont)
+    text('Apr 26', width - (width / 2.2), height - 140);
+    pop()
+
+    push()
+    textFont(bolderFont)
+    text('Worst day', width - (width / 3.2), height - 170);
+    textFont(regFont)
+    text('Sept 11', width - (width / 3.2), height - 140);
+    pop()
 }
 
 function draw() {
@@ -43,41 +93,46 @@ function draw() {
     rotate(PI + 1.55);
 
     //cycle through the table and store values
-for (let r = 0; r < table.getRowCount(); r++) {
-    day_computed  = table.getNum(r, 0);
-    seconds  = table.getNum(r, 1);
-    prod  = table.getNum(r, 2);
+    for (let r = 0; r < table.getRowCount(); r++) {
+        day_computed = table.getNum(r, 0);
+        seconds = table.getNum(r, 1);
+        prod = table.getNum(r, 2);
 
-    //print(title + ' ' + numPages)
+        //print(title + ' ' + numPages)
 
-    noStroke();
-    fill(30, 80);
+        noStroke();
+        fill(30, 80);
 
-      angleMode(DEGREES);
-      // map to degrees around circle 0 - 360
-      let arcStart = map(day_computed, 0, 365, 0, 360);
+        angleMode(DEGREES);
+        // map to degrees around circle 0 - 360
+        let arcStart = map(day_computed, 0, 365, 0, 360);
 
-      // map the size of each arc (stroke)
-      let size = map(seconds, 0, 40000, 5, 120);
+        // map the size of each arc (stroke)
+        let size = map(seconds, 0, 40000, 5, 120);
 
-      // define color based on bins of values
-      if (prod > 1.2) {
-        c = c0
-      } else if (prod > 0.5) {
-        c = c1
-      } else if (prod > 0) {
-        c = c1
-      } else {
-        c = c2
-      }
+        // define color based on bins of values
+        if (prod > 1.2) {
+            c = c0
+        } else if (prod > 0.5) {
+            c = c1
+        } else if (prod > 0) {
+            c = c1
+        } else {
+            c = c2
+        }
 
-      noFill();
-      stroke(c);
-      strokeWeight(size);
+        noFill();
+        stroke(c);
+        strokeWeight(size);
 
-      arc(0, 100, 450, 450, arcStart, arcStart + 1);
-  }
+        arc(0, 100, 450, 450, arcStart, arcStart + 1);
+    }
+
+    push();
+    translate(100, 100)
 
 
+
+    pop();
 
 }
