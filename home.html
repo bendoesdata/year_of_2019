@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script> -->
+    <title>My 2019 in Review</title>
+</head>
+
+<style>
+    @font-face {
+        font-family: regFont;
+        src: url('fonts/CircularStd-Medium.otf');
+    }
+    
+    @font-face {
+        font-family: bolderFont;
+        src: url('fonts/CircularStd-Black.otf');
+    }
+    
+    h1 {
+        font-family: bolderFont;
+        font-size: 5em;
+    }
+    
+    h2 {
+        font-family: regFont;
+        font-size: 2em;
+        margin-top: -30px
+    }
+    
+    p {
+        font-family: regFont;
+        font-size: 1.2em;
+        margin: auto;
+        color: black;
+        line-height: 1.4
+    }
+    
+    p.credits {
+        font-size: 0.8em;
+        color: gray
+    }
+    
+    .grid-holder {
+        width: 100%;
+        margin: auto;
+        margin-left: 1.5%;
+        padding: 1px
+    }
+    
+    .flex-row {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        padding: 0 0px;
+        margin: auto;
+    }
+    
+    .alt-wrap {
+        margin: 0;
+        padding: 0;
+    }
+    /* Create four equal columns that sits next to each other */
+    
+    .flex-column {
+        padding: 0 3px;
+    }
+    
+    .flex-column img {
+        margin-top: 5px;
+        vertical-align: middle;
+        width: 100%;
+    }
+    
+    @media screen and (max-width: 1800px) {
+        .flex-column {
+            flex: 100%;
+            max-width: 32%;
+        }
+    }
+    
+    @media screen and (max-width: 800px) {
+        .flex-column {
+            flex: 50%;
+            max-width: 48%;
+        }
+    }
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    
+    @media screen and (max-width: 500px) {
+        .flex-column {
+            flex: 100%;
+            max-width: 90%;
+        }
+    }
+    /* Wrap the image and alt text */
+    /* Will be added with js */
+    
+    .alt-wrap {
+        display: block;
+        position: relative;
+        margin: 0px;
+        color: whitesmoke;
+    }
+    /* Will be added with js */
+    
+    .alt-wrap p.alt {
+        position: absolute;
+        opacity: 0;
+        /* hide initially */
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        padding: 15px;
+        font-size: 24px;
+        line-height: 22px;
+        background-color: rgba(255, 255, 255, 0.9);
+        transition: all 300ms ease;
+        transition-delay: 50ms;
+        width: 90%
+    }
+    /* Hovering over the wrapper shows its alt p*/
+    
+    .alt-wrap:hover>p.alt {
+        opacity: 1;
+        transition-delay: 0s;
+    }
+    
+    .hero-image-holder {
+        max-width: 1400px;
+        margin: auto;
+    }
+    
+    .hov-img:hover {
+        box-shadow: 2px 2px #000000, 4px 4px #000000, 5px 5px #000000;
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    
+    .header {
+        margin: auto;
+        text-align: center;
+    }
+    
+    button {
+        background-color: white;
+        /* Green */
+        border: solid 1px black;
+        color: black;
+        padding: 8px 18px;
+        text-align: center;
+        text-decoration: none;
+        display: block;
+        font-size: 10px;
+        position: absolute;
+        left: 90%;
+        top: 5%;
+        font-family: regFont;
+    }
+    
+    button:hover {
+        background-color: black;
+        color: white
+    }
+    /* The Modal (background) */
+    
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+    /* Modal Content/Box */
+    
+    .modal-content {
+        background-color: #fefefe;
+        border: solid 4px black;
+        margin: 15% auto;
+        /* 15% from the top and centered */
+        padding: 20px;
+        width: 60%;
+        /* Could be more or less, depending on screen size */
+    }
+    
+    .modal-text {
+        margin: auto;
+        margin-top: 30px;
+        max-width: 550px
+    }
+    /* The Close Button */
+    
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn">about</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-text">
+                <p>For most of 2019, I took part in the quantified self movement. I tracked my steps, recorded runs, downloaded listening history. And surprisingly, all of this was fairly passive.</p>
+                <br>
+                <p>Tech companies collect huge amounts of data from users, so downloading my history was trivial. Inspired by the Feltron reports, I took the month of January 2020 to reflect on last year through visualizing this data.</p>
+                <br>
+                <p>All posters are designed and coded entirely using Javascript and the p5.js library.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- The Content -->
+    <div class="header">
+        <div>
+            <h1>2019</h1>
+            <h2>A visual year in review</h2>
+            <p class="credits">by Benjamin Cooley</p>
+        </div>
+        <div class="grid-holder">
+            <div class="flex-row">
+                <div class="flex-column">
+                    <a href="">
+                        <img class="hov-img" alt="Root to Flower" src="palette1.png">
+                    </a>
+                    <a href=""><img class="hov-img" alt="Network of a Lifetime" src="palette2.png"></a>
+                    <a href=""><img class="hov-img" alt="Government shutdown" src="palette3.png"></a>
+                </div>
+                <div class="flex-column">
+                    <a href=""><img class="hov-img" alt="Root to Flower" src="palette1.png"></a>
+                    <a href=""><img class="hov-img" alt="Network of a Lifetime" src="palette2.png"></a>
+                    <a href=""><img class="hov-img" alt="Government shutdown" src="palette3.png"></a>
+                </div>
+                <div class="flex-column">
+                    <a href=""><img class="hov-img" alt="Root to Flower" src="palette1.png"></a>
+                    <a href=""><img class="hov-img" alt="Network of a Lifetime" src="palette2.png"></a>
+                    <a href=""><img class="hov-img" alt="Government shutdown" src="palette3.png"></a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</body>
+
+<script>
+    // Wrap every .img in a div
+    // 1. For all items with class .hov-img...
+    // 2. Wrap them in a div
+    $(".hov-img").wrap('<div class="alt-wrap"/>');
+
+    // Add alt text after each .img
+    // 1. For all items with class .img...
+    // 2. Run a function for each of them...
+    // 3. To add a p element after it
+    // 5. Containing that element's alt text
+    $(".hov-img").each(function() {
+        $(this).after('<p class="alt">' + $(this).attr('alt') + '</p>');
+    })
+
+    // script for modal button
+
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</html>
