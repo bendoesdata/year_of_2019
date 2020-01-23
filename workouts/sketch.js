@@ -144,30 +144,30 @@ function draw() {
 
     push()
     textFont(bolderFont)
-    text('Average', width - (width / 2.2), height - 270);
+    text('Most active', width - (width / 2.2), height - 270);
     textFont(regFont)
-    text('9,898', width - (width / 2.2), height - 235);
+    text('July', width - (width / 2.2), height - 235);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Best day', width - (width / 3.2), height - 270);
+    text('Best hike', width - (width / 3.2), height - 270);
     textFont(regFont)
-    text('Dec 24th', width - (width / 3.2), height - 235);
+    text('Mt Moosilauke', width - (width / 3.2), height - 235);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Worst day', width - (width / 2.2), height - 170);
+    text('Most fun', width - (width / 2.2), height - 170);
     textFont(regFont)
-    text('Dec 1st', width - (width / 2.2), height - 135);
+    text('XC skiing', width - (width / 2.2), height - 135);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Other', width - (width / 3.2), height - 170);
+    text('Longest', width - (width / 3.2), height - 170);
     textFont(regFont)
-    text('1,240', width - (width / 3.2), height - 135);
+    text('Bike to Walden Pond', width - (width / 3.2), height - 135);
     pop()
 
 }

@@ -33,23 +33,30 @@ function setup() {
     strokeCap(SQUARE);
     offset = random(10, 50);
 
+}
+
+function draw() {
+    background('#F7F6F4');
+    // put everything in the center
+    translate(chartWidth / 2, chartHeight / 2);
+
     ///// START TEXT BELOW /////
     noStroke();
     height = height - 50;
+    fill(30);
 
     textFont(boldFont);
     textAlign(LEFT)
     textSize(22);
-    text('A year of', width / 6, height - 380);
+    text('A year of', (-width / 5), chartHeight - 480);
     textFont(bolderFont);
     textSize(76);
-    title = text('Workouts', (width / 6) - 5, height - 310);
+    title = text('Workouts', (-width / 5) - 5, chartHeight - 410);
 
-    fill(60);
+    fill(30);
     textSize(16);
     textFont(regFont)
-    body = text('Steps every day of 2019. What a time to be alive. Was it all worth it? I think so.',
-        width / 6, height - 280, // position
+    body = text('Depressing that my top site was Gmail', -width / 5, chartHeight - 380, // position
         400, 400); // wrap size
 
     // start stats to the right
@@ -57,37 +64,31 @@ function setup() {
 
     push()
     textFont(bolderFont)
-    text('Avg productivity', width - (width / 2.2), height - 270);
+    text('Top site', (width / 6.2), chartHeight - 370);
     textFont(regFont)
-    text('+0.7', width - (width / 2.2), height - 240);
+    text('Gmail', (width / 6.2), chartHeight - 335);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Top site', width - (width / 3.2), height - 270);
+    text('Avg productivity', (width / 3.5), chartHeight - 370);
     textFont(regFont)
-    text('Gmail', width - (width / 3.2), height - 240);
+    text('+0.7', (width / 3.5), chartHeight - 335);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Best day', width - (width / 2.2), height - 170);
+    text('Best day', (width / 6.2), chartHeight - 270);
     textFont(regFont)
-    text('Apr 26', width - (width / 2.2), height - 140);
+    text('Apr 26', (width / 6.2), chartHeight - 235);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Worst day', width - (width / 3.2), height - 170);
+    text('Worst day', (width / 3.5), chartHeight - 270);
     textFont(regFont)
-    text('Sept 11', width - (width / 3.2), height - 140);
+    text('Sept 11', (width / 3.5), chartHeight - 235);
     pop()
-}
-
-function draw() {
-    background('#F7F6F4');
-    // put everything in the center
-    translate(chartWidth / 2, chartHeight / 2);
 
     // make use Jan 1 is at the top
     rotate(PI + 1.55);
