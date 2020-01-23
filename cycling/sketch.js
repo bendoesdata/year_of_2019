@@ -17,7 +17,7 @@ function preload() {
 
 function setup() {
     width = windowWidth - 20;
-    height = windowHeight + 400;
+    height = windowHeight + 200;
 
     chartWidth = width - 100;
     chartHeight = windowHeight;
@@ -38,7 +38,19 @@ function draw() {
 
     // put everything in the center
     translate(width / 2, chartHeight / 1.4);
-    arc(0, 0, 960, 960, PI, TWO_PI)
+    arc(0, 0, 960, 960, PI, TWO_PI);
+
+    ///// LEGEND /////
+
+    noStroke();
+    fill(230, 120)
+    textSize(12)
+    text('distance', (width / 3) - 65, (chartHeight / 2) - 290);
+    stroke(230, 120);
+    strokeWeight(1);
+    noFill();
+    circle((width / 3) - 65, (chartHeight / 2) - 250, 10);
+    circle((width / 3) - 30, (chartHeight / 2) - 250, 40);
 
     // make use Jan 1 is at the top
     rotate(HALF_PI);
@@ -113,16 +125,16 @@ function draw() {
     textFont(boldFont);
     textAlign(LEFT)
     textSize(22);
-    text('A year of', width / 6, height - 580);
+    text('A year of', width / 6, chartHeight - 70);
     textFont(bolderFont);
     textSize(76);
-    title = text('Cycling', (width / 6) - 5, height - 510);
+    title = text('Cycling', (width / 6) - 5, chartHeight + 10);
 
     fill(230);
     textSize(16);
     textFont(regFont)
     body = text('Steps every day of 2019. What a time to be alive. Was it all worth it? I think so.',
-        width / 6, height - 280, // position
+        width / 6, chartHeight + 50, // position
         400, 400); // wrap size
 
     // start stats to the right
@@ -130,30 +142,30 @@ function draw() {
 
     push()
     textFont(bolderFont)
-    text('Longest ride', width - (width / 2.2), height - 270);
+    text('Longest ride', width - (width / 2.2), chartHeight + 270);
     textFont(regFont)
-    text('36 mi', width - (width / 2.2), height - 240);
+    text('36 mi', width - (width / 2.2), chartHeight + 240);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Total miles', width - (width / 3.2), height - 270);
+    text('Total miles', width - (width / 3.2), chartHeight + 270);
     textFont(regFont)
-    text('688', width - (width / 3.2), height - 240);
+    text('688', width - (width / 3.2), chartHeight + 240);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Avg distance', width - (width / 2.2), height - 170);
+    text('Avg distance', width - (width / 2.2), chartHeight + 170);
     textFont(regFont)
-    text('2.5 mi', width - (width / 2.2), height - 140);
+    text('2.5 mi', width - (width / 2.2), chartHeight + 140);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Most common ride', width - (width / 3.2), height - 170);
+    text('Most common ride', width - (width / 3.2), chartHeight + 170);
     textFont(regFont)
-    text('Home --> Greentown Labs', width - (width / 3.2), height - 140);
+    text('Home --> Greentown Labs', width - (width / 3.2), chartHeight + 140);
     pop()
 
 }

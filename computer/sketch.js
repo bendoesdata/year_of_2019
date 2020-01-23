@@ -1,8 +1,8 @@
 let mid;
-
 let width, height, chartWidth, chartHeight;
 let name, seconds, prod, c;
 let c0, c1, c2, c3;
+let months = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
 // make sure data is loaded first
 function preload() {
@@ -40,6 +40,43 @@ function draw() {
     // put everything in the center
     translate(chartWidth / 2, chartHeight / 2);
 
+
+    /////  TICKS AND MONTHS /////
+    push();
+    translate(70, -20);
+    fill(30, 40)
+    let monthMark = 0;
+    rotate(0.23)
+    textAlign(CENTER);
+    textSize(10);
+    // draw tick marks for months
+    for (let z = 1; z < 13; z++) {
+        let wordSpace = 0.52;
+        rotate(monthMark);
+        monthMark = wordSpace;
+        text(months[z], 0, -320);
+    }
+    pop();
+
+    push();
+    translate(70, -20);
+    angleMode(DEGREES);
+    stroke(30, 50);
+    strokeWeight(1);
+    let tickMark = -3;
+    // draw tick marks for months
+    for (let z = 1; z < 13; z++) {
+        let monthSpace = 360 / 12;
+        rotate(tickMark);
+        tickMark = monthSpace;
+        line(0, 300, 0, 310);
+    }
+
+    pop();
+
+    // back to Radians
+    angleMode(RADIANS)
+
     ///// LEGEND /////
 
     noStroke();
@@ -60,14 +97,14 @@ function draw() {
 
     fill(120)
     textSize(12)
-    text('duration (mins)', (width / 3) + 80, chartHeight - 515);
+    text('duration (mins)', (width / 3) + 70, chartHeight - 515);
     rect((width / 3) + 80, chartHeight - 500, 45, 3)
     rect((width / 3) + 90, chartHeight - 495, 20, 3)
     rect((width / 3) + 96, chartHeight - 490, 10, 3)
 
-    ///// START TEXT BELOW /////
+    ///// START STATS TEXT BELOW /////
     height = height - 50;
-    fill(30);
+    fill(10);
 
     textFont(boldFont);
     textAlign(LEFT)
@@ -75,9 +112,9 @@ function draw() {
     text('A year of', (-width / 4), chartHeight - 480);
     textFont(bolderFont);
     textSize(76);
-    title = text('Laptop time', (-width / 4) - 5, chartHeight - 410);
+    title = text('Computing', (-width / 4) - 5, chartHeight - 410);
 
-    fill(30);
+    fill(10);
     textSize(16);
     textFont(regFont)
     body = text('Depressing that my top site was Gmail', -width / 4, chartHeight - 380, // position
@@ -90,6 +127,7 @@ function draw() {
     textFont(bolderFont)
     text('Top site', (width / 6.2), chartHeight - 370);
     textFont(regFont)
+    textSize(22);
     text('Gmail', (width / 6.2), chartHeight - 335);
     pop()
 
@@ -97,6 +135,7 @@ function draw() {
     textFont(bolderFont)
     text('Avg productivity', (width / 3.5), chartHeight - 370);
     textFont(regFont)
+    textSize(22);
     text('+0.7', (width / 3.5), chartHeight - 335);
     pop()
 
@@ -104,6 +143,7 @@ function draw() {
     textFont(bolderFont)
     text('Best day', (width / 6.2), chartHeight - 270);
     textFont(regFont)
+    textSize(22);
     text('Apr 26', (width / 6.2), chartHeight - 235);
     pop()
 
@@ -111,11 +151,16 @@ function draw() {
     textFont(bolderFont)
     text('Worst day', (width / 3.5), chartHeight - 270);
     textFont(regFont)
+    textSize(22);
     text('Sept 11', (width / 3.5), chartHeight - 235);
     pop()
 
+    /////  START RADIAL VIZ  /////
+
     // make use Jan 1 is at the top
     rotate(PI + 1.55);
+
+    translate(0, -50);
 
     //cycle through the table and store values
     for (let r = 0; r < table.getRowCount(); r++) {
@@ -133,7 +178,7 @@ function draw() {
         let arcStart = map(day_computed, 0, 365, 0, 360);
 
         // map the size of each arc (stroke)
-        let size = map(seconds, 0, 40000, 5, 120);
+        let size = map(seconds, 0, 40000, 5, 200);
 
         // define color based on bins of values
         if (prod > 1.2) {
@@ -154,7 +199,6 @@ function draw() {
     }
 
     push();
-    translate(100, 100)
 
 
 

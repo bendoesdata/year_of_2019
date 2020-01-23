@@ -4,9 +4,13 @@ let day, type, distance;
 let circFill;
 let months = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
-const backgroundColor = "#2A8E9D"
-const circleColor = "#353E4D"
-const cream = '#F7F6F4'
+const backgroundColor = "#2A8E9D";
+const cream = '#F7F6F4';
+
+const rideColor = "rgba(55,64,80, 0.5)";
+const runColor = "rgba(42,142,157, 0.5)";
+const hikeColor = "rgba(255,82,69, 0.5)";
+const otherColor = "rgba(252, 195, 53, 0.6)"
 
 function preload() {
     //my table is comma separated value "csv"
@@ -40,14 +44,45 @@ function draw() {
     stroke(210);
     strokeWeight(1);
     noFill();
-    //ellipse(0, 0, 200);
     ellipse(0, 0, 350);
     ellipse(0, 0, 500);
     ellipse(0, 0, 650);
     ellipse(0, 0, 800);
 
+    ///// LEGEND /////
+
+    noStroke();
+    fill(120)
+    textSize(12)
+    text('distance', (width / 3) - 65, chartHeight - 130);
+    stroke(30, 120);
+    strokeWeight(1);
+    noFill();
+    circle((width / 3) - 65, chartHeight - 90, 10);
+    circle((width / 3) - 30, chartHeight - 90, 40);
+
+    noStroke();
+    textSize(12);
+    fill(120);
+    text('activities', (width / 3) + 60, chartHeight - 130);
+    textSize(10);
+    text('cycling', (width / 3) + 75, chartHeight - 110 + 2);
+    text('running', (width / 3) + 75, chartHeight - 90 + 2);
+    text('hiking', (width / 3) + 75, chartHeight - 70 + 2);
+    text('other', (width / 3) + 75, chartHeight - 50 + 2);
+
+
+    fill("rgba(55,64,80, 0.8)");
+    circle((width / 3) + 65, chartHeight - 110, 10);
+    fill("rgba(42,142,157, 0.8)");
+    circle((width / 3) + 65, chartHeight - 90, 10);
+    fill("rgba(255,82,69, 0.8)");
+    circle((width / 3) + 65, chartHeight - 70, 10);
+    fill("rgba(252, 195, 53, 0.8)");
+    circle((width / 3) + 65, chartHeight - 50, 10);
+
     push();
-    fill(30, 50)
+    fill(30, 30)
     let monthMark = 0;
     rotate(0.28)
     textAlign(CENTER);
@@ -66,7 +101,7 @@ function draw() {
 
     push();
     angleMode(DEGREES);
-    stroke(150);
+    stroke(30, 80);
     strokeWeight(1);
     let tickMark = 0;
     // draw tick marks for months
