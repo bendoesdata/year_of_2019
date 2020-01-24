@@ -38,7 +38,7 @@ function setup() {
 function draw() {
     push();
     // put everything in the center
-    translate(width / 2, chartHeight / 1.4);
+    translate(width / 2, chartHeight / 1.2);
 
     // make the axis
     stroke(210);
@@ -92,7 +92,7 @@ function draw() {
         let wordSpace = 0.52;
         rotate(monthMark);
         monthMark = wordSpace;
-        text(months[z], 0, -420);
+        text(months[z], 0, -430);
     }
     pop();
 
@@ -167,10 +167,10 @@ function draw() {
     textSize(76);
     title = text('Workouts', (width / 6) - 5, height - 310);
 
-    fill(60);
+    fill(20);
     textSize(16);
     textFont(regFont)
-    body = text('Steps every day of 2019. What a time to be alive. Was it all worth it? I think so.',
+    body = text('This by no means represents every physical activity I did in 2019. But the trouble with health tracking is that you have to remember to do it. For the first half of 2019, I tracked workouts rather sporadically. I started using Strava consistently to track workouts after June. So while I definitely took more hikes than is shown here, I think it is still representative of my activity for the yera. Moving to Boston seemed to be very good for my overall health, as you can see by the spike in activity on the left side of the circle.',
         width / 6, height - 280, // position
         400, 400); // wrap size
 

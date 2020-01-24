@@ -50,15 +50,19 @@ function drawRadial(barValue, barDate, source) {
     let monthMark = 0;
     rotate(0.28)
     textAlign(CENTER);
+    angleMode(RADIANS);
     textSize(10);
+    translate((width/2)+0,(windowHeight/2)-0);
     // draw tick marks for months
     for (let z = 1; z < 13; z++) {
         let wordSpace = 0.52;
         rotate(monthMark);
         monthMark = wordSpace;
-        text(months[z], 0, -420);
+        text(months[z], 0, -320);
     }
     pop();
+
+    angleMode(DEGREES);
 
     for (var i = 0; i < barValue.length; i = i + 1) {
         push();
@@ -102,13 +106,17 @@ function draw() {
     circle(windowWidth / 2, windowHeight / 2, 430); // 20,000 steps
     circle(windowWidth / 2, windowHeight / 2, 570); // 20,000 steps
 
+    textSize(10);
+    fill(250);
+    text('estimates', (width / 2) + 100, (windowHeight / 2) - 150)
+
     c = color('rgba(60, 67, 76,0.8)'); // Define color 'c'
     fill(c);
     noStroke();
     textSize(12);
-    text('10k', windowWidth - 550, windowHeight / 2)
-    text('20k', windowWidth - 480, windowHeight / 2)
-    text('30k', windowWidth - 410, windowHeight / 2)
+    // text('10k', windowWidth - 550, windowHeight / 2)
+    text('20k', windowWidth - (windowWidth / 3) - 30, (windowHeight / 2) - 20)
+    text('30k', windowWidth - (windowWidth / 3) + 40, (windowHeight / 2) - 20)
 
 
     var steps = mydata.steps;
@@ -137,7 +145,7 @@ function draw() {
     textFont(regFont)
 
     if (windowWidth > 800) {
-        body = text('Steps every day of 2019. What a time to be alive. Was it all worth it? I think so.',
+        body = text('My step tracking really began in March, when I started using Gyroscope for health tracking. Before that I had to do an estimated average for each day. Overall I think I had a good average, but most of my walking tends to be on weekends when I like to go hiking. In 2019, I walked more than the diameter of the moon.',
             width / 6, height - 480,
             400, 400);
     }

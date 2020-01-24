@@ -21,7 +21,7 @@ const cream = '#F7F6F4'
 
 function setup() {
     width = windowWidth - 20;
-    height = windowHeight + 400;
+    height = windowHeight + 100;
 
     chartWidth = width - 100;
     chartHeight = windowHeight;
@@ -109,15 +109,15 @@ function draw() {
     textFont(boldFont);
     textAlign(LEFT)
     textSize(22);
-    text('A year of', (-width / 4), chartHeight - 480);
+    text('A year of', (-width / 4), chartHeight - 440);
     textFont(bolderFont);
     textSize(76);
-    title = text('Computing', (-width / 4) - 5, chartHeight - 410);
+    title = text('Computing', (-width / 4) - 5, chartHeight - 370);
 
     fill(10);
     textSize(16);
     textFont(regFont)
-    body = text('Depressing that my top site was Gmail', -width / 4, chartHeight - 380, // position
+    body = text('I track my laptop activity using RescueTime, but I only have this app installed on my personal laptop. In June I started a new job, which meant a work computer where I do most "work" things. My most productive activity tended to be early in the year, when I was searching for a job and adding new pieces to my portfolio. Looking back, it feels a bit depressing that my most used applications was Gmail...', -width / 4, chartHeight - 340, // position
         400, 400); // wrap size
 
     // start stats to the right
@@ -125,34 +125,34 @@ function draw() {
 
     push()
     textFont(bolderFont)
-    text('Top site', (width / 6.2), chartHeight - 370);
+    text('Top site', (width / 6.2), chartHeight - 330);
     textFont(regFont)
     textSize(22);
-    text('Gmail', (width / 6.2), chartHeight - 335);
+    text('Gmail', (width / 6.2), chartHeight - 295);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Avg productivity', (width / 3.5), chartHeight - 370);
+    text('Avg productivity', (width / 3.5), chartHeight - 330);
     textFont(regFont)
     textSize(22);
-    text('+0.7', (width / 3.5), chartHeight - 335);
+    text('+0.7', (width / 3.5), chartHeight - 295);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Best day', (width / 6.2), chartHeight - 270);
+    text('Best day', (width / 6.2), chartHeight - 230);
     textFont(regFont)
     textSize(22);
-    text('Apr 26', (width / 6.2), chartHeight - 235);
+    text('Apr 26', (width / 6.2), chartHeight - 195);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Worst day', (width / 3.5), chartHeight - 270);
+    text('Worst day', (width / 3.5), chartHeight - 230);
     textFont(regFont)
     textSize(22);
-    text('Sept 11', (width / 3.5), chartHeight - 235);
+    text('Sept 11', (width / 3.5), chartHeight - 195);
     pop()
 
     /////  START RADIAL VIZ  /////
@@ -199,8 +199,6 @@ function draw() {
     }
 
     push();
-
-
 
     pop();
 

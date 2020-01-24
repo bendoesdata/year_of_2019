@@ -27,10 +27,10 @@ function setup() {
             name = table.getString(r, 0);
             totals = table.getNum(r, 1);
             noStroke();
-            fill(230, 80);
+            fill(250, 80);
             // map the size of circle
-            size = map(totals, 0, 500, 0, 200);
-            console.log(size)
+            size = map(totals, 0, 500, 0, 150);
+            // console.log(size)
 
             var circle = {
                 x: random(20, windowWidth - 20),
@@ -62,15 +62,15 @@ function setup() {
     for (var i = 0; i < circles.length; i++) {
 
         // draw the circles and text
-        fill(random(0, 120), random(50, 100), 190, 120);
+        fill(random(0, 10), random(50, 200), 190, 120);
         noStroke();
         ellipse(circles[i].x, circles[i].y, circles[i].r * 2, circles[i].r * 2);
         textSize(12);
-        fill(230);
+        fill(250);
         noStroke();
         textAlign(CENTER);
         if ((circles[i].r * 2) > 80) {
-            text(circles[i].artist, circles[i].x - 50, circles[i].y - 10, 100, 50)
+            text(circles[i].artist, circles[i].x - 50, circles[i].y - 7, 100, 50)
         }
 
     }
@@ -78,7 +78,7 @@ function setup() {
     ///// START TEXT BELOW /////
     noStroke();
     height = height - 50;
-    fill(60);
+    fill(20);
 
     textFont(boldFont);
     textAlign(LEFT)
@@ -88,11 +88,11 @@ function setup() {
     textSize(76);
     title = text('Music', (width / 6) - 5, height - 310);
 
-    fill(60);
+    fill(20);
     textSize(16);
     textFont(regFont)
-    body = text('Steps every day of 2019. What a time to be alive. Was it all worth it? I think so.',
-        width / 6, height - 280, // position
+    body = text('I try to keep my genres broad. I also happen to share my Spotify account with my wife, who can share different tastes. Variety is the spice of life, right! Leon Bridges was my go-to in 2019, but I was also falling back on Dawes quite a bit. Maggie Rogers was also a jam. As you can see, a few artists (the largest circles) dominated my listening for the year.',
+        width / 6, height - 290, // position
         400, 400); // wrap size
 
     // start stats to the right

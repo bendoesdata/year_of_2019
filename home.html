@@ -15,23 +15,23 @@
         font-family: regFont;
         src: url('fonts/CircularStd-Medium.otf');
     }
-    
+
     @font-face {
         font-family: bolderFont;
         src: url('fonts/CircularStd-Black.otf');
     }
-    
+
     h1 {
         font-family: bolderFont;
         font-size: 5em;
     }
-    
+
     h2 {
         font-family: regFont;
         font-size: 2em;
         margin-top: -30px
     }
-    
+
     p {
         font-family: regFont;
         font-size: 1.2em;
@@ -39,19 +39,19 @@
         color: black;
         line-height: 1.4
     }
-    
+
     p.credits {
         font-size: 0.8em;
         color: gray
     }
-    
+
     .grid-holder {
         width: 100%;
         margin: auto;
         margin-left: 1.5%;
         padding: 1px
     }
-    
+
     .flex-row {
         display: flex;
         width: 100%;
@@ -59,30 +59,30 @@
         padding: 0 0px;
         margin: auto;
     }
-    
+
     .alt-wrap {
         margin: 0;
         padding: 0;
     }
     /* Create four equal columns that sits next to each other */
-    
+
     .flex-column {
         padding: 0 3px;
     }
-    
+
     .flex-column img {
         margin-top: 5px;
         vertical-align: middle;
         width: 100%;
     }
-    
+
     @media screen and (max-width: 1800px) {
         .flex-column {
             flex: 100%;
             max-width: 32%;
         }
     }
-    
+
     @media screen and (max-width: 800px) {
         .flex-column {
             flex: 50%;
@@ -90,7 +90,7 @@
         }
     }
     /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-    
+
     @media screen and (max-width: 500px) {
         .flex-column {
             flex: 100%;
@@ -99,7 +99,7 @@
     }
     /* Wrap the image and alt text */
     /* Will be added with js */
-    
+
     .alt-wrap {
         display: block;
         position: relative;
@@ -107,7 +107,7 @@
         color: whitesmoke;
     }
     /* Will be added with js */
-    
+
     .alt-wrap p.alt {
         position: absolute;
         opacity: 0;
@@ -125,29 +125,29 @@
         width: 90%
     }
     /* Hovering over the wrapper shows its alt p*/
-    
+
     .alt-wrap:hover>p.alt {
         opacity: 1;
         transition-delay: 0s;
     }
-    
+
     .hero-image-holder {
         max-width: 1400px;
         margin: auto;
     }
-    
+
     .hov-img:hover {
         box-shadow: 2px 2px #000000, 4px 4px #000000, 5px 5px #000000;
         -webkit-transform: translateX(-3px);
         transform: translateX(-3px);
     }
-    
+
     .header {
         margin: auto;
         text-align: center;
         margin-bottom: 50px
     }
-    
+
     button {
         background-color: white;
         /* Green */
@@ -163,13 +163,13 @@
         top: 5%;
         font-family: regFont;
     }
-    
+
     button:hover {
         background-color: black;
         color: white
     }
     /* The Modal (background) */
-    
+
     .modal {
         display: none;
         /* Hidden by default */
@@ -191,7 +191,7 @@
         /* Black w/ opacity */
     }
     /* Modal Content/Box */
-    
+
     .modal-content {
         background-color: #fefefe;
         border: solid 4px black;
@@ -201,22 +201,22 @@
         width: 60%;
         /* Could be more or less, depending on screen size */
     }
-    
+
     .modal-text {
         margin: auto;
         margin-top: 30px;
         margin-bottom: 30px;
-        max-width: 550px
+        max-width: 450px
     }
     /* The Close Button */
-    
+
     .close {
         color: rgb(91, 91, 91);
         float: right;
         font-size: 28px;
         font-weight: bold;
     }
-    
+
     .close:hover,
     .close:focus {
         color: black;

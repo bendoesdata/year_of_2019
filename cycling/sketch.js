@@ -2,6 +2,7 @@ let mid;
 let ring;
 let day, type, distance;
 let circFill;
+let months = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
 const backgroundColor = "rgba(55,64,80, 1)"
 const cream = '#F7F6F4'
@@ -17,7 +18,7 @@ function preload() {
 
 function setup() {
     width = windowWidth - 20;
-    height = windowHeight + 200;
+    height = windowHeight + 100;
 
     chartWidth = width - 100;
     chartHeight = windowHeight;
@@ -37,7 +38,7 @@ function draw() {
     noFill();
 
     // put everything in the center
-    translate(width / 2, chartHeight / 1.4);
+    translate(width / 2, chartHeight / 1.3);
     arc(0, 0, 960, 960, PI, TWO_PI);
 
     ///// LEGEND /////
@@ -45,21 +46,15 @@ function draw() {
     noStroke();
     fill(230, 120)
     textSize(12)
-    text('distance', (width / 3) - 65, (chartHeight / 2) - 290);
+    text('distance', (width / 2) - 180, (chartHeight / 2) - 280);
     stroke(230, 120);
     strokeWeight(1);
     noFill();
-    circle((width / 3) - 65, (chartHeight / 2) - 250, 10);
-    circle((width / 3) - 30, (chartHeight / 2) - 250, 40);
+    circle((width / 2) - 180, (chartHeight / 2) - 250, 10);
+    circle((width / 2) - 140, (chartHeight / 2) - 250, 40);
 
     // make use Jan 1 is at the top
     rotate(HALF_PI);
-
-    //ellipse(0, 0, 200);
-    // ellipse(0, 0, 350);
-    // ellipse(0, 0, 650);
-
-    // ellipse(0, 0, 800);
 
     push();
     angleMode(DEGREES);
@@ -72,8 +67,42 @@ function draw() {
         let monthSpace = 180 / 12;
         rotate(tickMark);
         tickMark = monthSpace;
-        line(0, 500, 0, 510);
+        line(0, 480, 0, 490);
     }
+    pop();
+
+    push();
+    angleMode(RADIANS);
+    fill(230, 40)
+    noStroke();
+    textSize(10);
+    textFont(regFont)
+    textAlign(CENTER);
+    push()
+    rotate(PI)
+    text('Jan', 60,-530)
+    pop()
+    push()
+    rotate(PI + 0.5)
+    text('Mar', 80,-530)
+    pop()
+    push()
+    rotate(PI + 1.2)
+    text('May', -3,-520)
+    pop()
+    push()
+    rotate(PI + 1.6)
+    text('July', 60,-510)
+    pop()
+    push()
+    rotate(PI + 2.2)
+    text('Sep', 10,-530)
+    pop()
+    push()
+    rotate(PI + 2.74)
+    text('Nov', 10,-530)
+    pop()
+    // draw tick marks for months
 
 
     pop();
@@ -87,16 +116,7 @@ function draw() {
         // select the ring to draw bubble
         if (type == "Ride") {
             ring = 480;
-            circFill = "rgba(55,64,80, 0.5)"
-        } else if (type == "Run") {
-            ring = 325;
-            circFill = "rgba(42,142,157, 0.5)"
-        } else if (type == "Hike") {
-            ring = 250;
-            circFill = "rgba(255,82,69, 0.5)"
-        } else {
-            ring = 175;
-            circFill = "rgba(255,82,69, 0.9)"
+            circFill = "rgba(55,64,80, 0.8)"
         }
 
         noStroke();
@@ -108,7 +128,7 @@ function draw() {
         let circleSpot = map(day, 0, 360, 0, 180);
 
         // map the size of circle
-        let size = map(distance, 0, 50, 5, 80);
+        let size = map(distance, 0, 50, 5, 110);
 
         rotate(circleSpot);
         ellipse(0, ring, size);
@@ -121,20 +141,20 @@ function draw() {
 
     ///// START TEXT BELOW /////
     noStroke();
+    fill(230);
     height = height - 50;
     textFont(boldFont);
     textAlign(LEFT)
     textSize(22);
-    text('A year of', width / 6, chartHeight - 70);
+    text('A year of', width / 6, chartHeight - 120);
     textFont(bolderFont);
     textSize(76);
-    title = text('Cycling', (width / 6) - 5, chartHeight + 10);
+    title = text('Cycling', (width / 6) - 5, chartHeight - 45);
 
-    fill(230);
     textSize(16);
     textFont(regFont)
-    body = text('Steps every day of 2019. What a time to be alive. Was it all worth it? I think so.',
-        width / 6, chartHeight + 50, // position
+    body = text('In May I moved from London to Boston, MA. For cycling specifically, this meant a huge increase in mileage. I used to ride in London a bit, but here in Boston I bike to work almost everyday. There were also a few longer treks over the year: like to Walden Pond in June!',
+        width / 6, chartHeight - 10, // position
         400, 400); // wrap size
 
     // start stats to the right
@@ -142,30 +162,30 @@ function draw() {
 
     push()
     textFont(bolderFont)
-    text('Longest ride', width - (width / 2.2), chartHeight + 270);
+    text('Longest ride', width - (width / 2.2), chartHeight - 10);
     textFont(regFont)
-    text('36 mi', width - (width / 2.2), chartHeight + 240);
+    text('36 mi', width - (width / 2.2), chartHeight + 20);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Total miles', width - (width / 3.2), chartHeight + 270);
+    text('Total miles', width - (width / 3.2), chartHeight - 10);
     textFont(regFont)
-    text('688', width - (width / 3.2), chartHeight + 240);
+    text('688', width - (width / 3.2), chartHeight + 20);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Avg distance', width - (width / 2.2), chartHeight + 170);
+    text('Avg distance', width - (width / 2.2), chartHeight + 90);
     textFont(regFont)
-    text('2.5 mi', width - (width / 2.2), chartHeight + 140);
+    text('2.5 mi', width - (width / 2.2), chartHeight + 120);
     pop()
 
     push()
     textFont(bolderFont)
-    text('Most common ride', width - (width / 3.2), chartHeight + 170);
+    text('Most common ride', width - (width / 3.2), chartHeight + 90);
     textFont(regFont)
-    text('Home --> Greentown Labs', width - (width / 3.2), chartHeight + 140);
+    text('Home --> Greentown Labs', width - (width / 3.2), chartHeight + 120);
     pop()
 
 }

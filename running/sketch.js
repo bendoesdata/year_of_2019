@@ -46,7 +46,7 @@ function drawCircles() {
         circleSpot = map(day, 0, 360, 30, chartWidth);
 
         // map the size of circle
-        let size = map(distance, 0, 13, 2, 50);
+        let size = map(distance, 0, 13, 2, 60);
 
         ellipse(circleSpot, chartHeight / 2, size);
         textSize(10);
@@ -59,6 +59,18 @@ function drawCircles() {
 function draw() {
 
     background(backgroundColor);
+
+    ///// LEGEND /////
+
+    noStroke();
+    fill(230, 180)
+    textSize(12)
+    text('distance', width - (width / 6), chartHeight - 180);
+    stroke(230, 180);
+    strokeWeight(1);
+    noFill();
+    circle(width - (width / 6) + 0, chartHeight - 145, 10);
+    circle(width - (width / 6) + 40, chartHeight - 145, 40);
 
     //create the axis circles
     c = color('rgba(30,30,30,0.2)'); // Define color 'c'
@@ -109,7 +121,7 @@ function draw() {
     textFont(regFont)
 
     if (windowWidth > 800) {
-        body = text('Steps every day of 2019. What a time to be alive. Was it all worth it? I think so.',
+        body = text('I tried to up my running game in 2019, and I think I partially succeeded. As expected, January started strong but then I faltered off. When I moved to Boston I found more places to run than in London, so that made me feel more motivated. August was my best month but then I faltered as the weather got colder. ',
             width / 6, height - 480,
             400, 400);
     }
