@@ -21,7 +21,7 @@ function setup() {
     height = windowHeight + 100;
 
     chartWidth = width - 100;
-    chartHeight = windowHeight;
+    chartHeight = windowHeight + 30;
 
     createCanvas(width, height + 400);
     background(backgroundColor);
@@ -169,9 +169,9 @@ function draw() {
 
     push()
     textFont(bolderFont)
-    text('Total miles', width - (width / 3.2), chartHeight - 10);
+    text('Total distance', width - (width / 3.2), chartHeight - 10);
     textFont(regFont)
-    text('688', width - (width / 3.2), chartHeight + 20);
+    text('688 mi', width - (width / 3.2), chartHeight + 20);
     pop()
 
     push()
@@ -185,7 +185,7 @@ function draw() {
     textFont(bolderFont)
     text('Most common ride', width - (width / 3.2), chartHeight + 90);
     textFont(regFont)
-    text('Home --> Greentown Labs', width - (width / 3.2), chartHeight + 120);
+    text('Work commute', width - (width / 3.2), chartHeight + 120);
     pop()
 
 }

@@ -26,9 +26,9 @@ function setup() {
     height = windowHeight + 400;
 
     chartWidth = width - 100;
-    chartHeight = windowHeight - 200;
+    chartHeight = windowHeight - 150;
 
-    createCanvas(width, height + 200);
+    createCanvas(width, height + 400);
     background(cream);
     mid = width / 2;
     noLoop();
@@ -82,7 +82,7 @@ function draw() {
     circle((width / 3) + 65, chartHeight - 50, 10);
 
     push();
-    fill(30, 30)
+    fill(30, 50)
     let monthMark = 0;
     rotate(0.28)
     textAlign(CENTER);
@@ -200,7 +200,7 @@ function draw() {
 
     push()
     textFont(bolderFont)
-    text('Longest', width - (width / 3.2), height - 170);
+    text('Longest activity', width - (width / 3.2), height - 170);
     textFont(regFont)
     text('Bike to Walden Pond', width - (width / 3.2), height - 135);
     pop()

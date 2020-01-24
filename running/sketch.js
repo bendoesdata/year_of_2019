@@ -121,7 +121,7 @@ function draw() {
     textFont(regFont)
 
     if (windowWidth > 800) {
-        body = text('I tried to up my running game in 2019, and I think I partially succeeded. As expected, January started strong but then I faltered off. When I moved to Boston I found more places to run than in London, so that made me feel more motivated. August was my best month but then I faltered as the weather got colder. ',
+        body = text('I tried to up my running game in 2019, and I think I partially succeeded. Over the year I ran about the equivalent distance as the width of New York state. As expected, January started strong but then I faltered off. When I moved to Boston I found more places to run than in London, so that made me feel more motivated. August was my best month but then I faltered as the weather got colder. ',
             width / 6, height - 480,
             400, 400);
     }
@@ -139,9 +139,9 @@ function draw() {
 
     push()
     textFont(bolderFont)
-    text('Total miles', width - (width / 3.2), height - 460);
+    text('Total', width - (width / 3.2), height - 460);
     textFont(regFont)
-    text('275', width - (width / 3.2), height - 425);
+    text('275 mi', width - (width / 3.2), height - 425);
     pop()
 
     push()

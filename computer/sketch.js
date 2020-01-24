@@ -21,7 +21,7 @@ const cream = '#F7F6F4'
 
 function setup() {
     width = windowWidth - 20;
-    height = windowHeight + 100;
+    height = windowHeight + 50;
 
     chartWidth = width - 100;
     chartHeight = windowHeight;

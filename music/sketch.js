@@ -91,7 +91,7 @@ function setup() {
     fill(20);
     textSize(16);
     textFont(regFont)
-    body = text('I try to keep my genres broad. I also happen to share my Spotify account with my wife, who can share different tastes. Variety is the spice of life, right! Leon Bridges was my go-to in 2019, but I was also falling back on Dawes quite a bit. Maggie Rogers was also a jam. As you can see, a few artists (the largest circles) dominated my listening for the year.',
+    body = text('I try to keep my genres broad. I also happen to share my Spotify account with my wife, who can share different tastes. Variety is the spice of life, right! Each circle represents a different artist. Leon Bridges was my go-to in 2019, but I was also falling back on Dawes quite a bit. Maggie Rogers was also a jam. As you can see, a few artists (the largest circles) dominated my listening for the year.',
         width / 6, height - 290, // position
         400, 400); // wrap size
 

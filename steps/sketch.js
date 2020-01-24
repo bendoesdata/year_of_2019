@@ -140,7 +140,7 @@ function draw() {
     textSize(76);
     title = text('Steps', (width / 6) - 5, height - 510);
 
-    fill(250, 250, 250);
+    // fill(250, 250, 250);
     textSize(18);
     textFont(regFont)
 
