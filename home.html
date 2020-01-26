@@ -45,6 +45,16 @@
         color: gray
     }
 
+    p.credits a {
+        color: gray;
+        text-decoration: underline
+    }
+
+    p.credits a:hover {
+        color: black;
+        text-decoration: underline
+    }
+
     .grid-holder {
         width: 100%;
         margin: auto;
@@ -157,10 +167,10 @@
         text-align: center;
         text-decoration: none;
         display: block;
-        font-size: 10px;
+        font-size: 14px;
         position: absolute;
-        left: 90%;
-        top: 10%;
+        left: 85%;
+        top: 5%;
         font-family: regFont;
     }
 
@@ -223,6 +233,18 @@
         text-decoration: none;
         cursor: pointer;
     }
+
+    #mobile-grid {
+      margin-bottom: 100px
+    }
+
+    .dis-none {
+      display: none
+    }
+
+    #desktop-grid {
+      margin-bottom: 100px
+    }
 </style>
 
 <body>
@@ -236,11 +258,11 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <div class="modal-text">
-                <p>For most of 2019, I took part in the quantified self movement. I tracked my steps, recorded runs, downloaded listening history. And surprisingly, all of this was fairly passive.</p>
+                <p>For most of 2019, I took part in the quantified self movement. I tracked my steps, recorded runs, downloaded listening history. This project visualizes nearly all the data I collected about myself.</p>
                 <br>
-                <p>Tech companies collect huge amounts of data from users, so downloading my history was trivial. Inspired by the Feltron reports, I took the month of January 2020 to reflect on last year through visualizing this data.</p>
+                <p>Tech companies collect huge amounts of data from users, so downloading my history was trivial. Inspired by the <a href="http://feltron.com/">Feltron reports</a>, I took the month of January 2020 to reflect on last year through visualizing this data.</p>
                 <br>
-                <p>All posters are designed and coded entirely using Javascript and the p5.js library.</p>
+                <p>All posters are designed and coded entirely using Javascript and the <a href="https://p5js.org/">p5.js</a> library.</p>
             </div>
         </div>
 
@@ -251,9 +273,9 @@
         <div class="header">
             <h1>2019</h1>
             <h2 style="margin-top: -50px">a year of data, visualized.</h2>
-            <p class="credits">by Benjamin Cooley</p>
+            <p class="credits">by <a href="https://bendoesdata.github.io/" target="_blank">Benjamin Cooley</a></p>
         </div>
-        <div class="grid-holder">
+        <div id="desktop-grid" class="grid-holder">
             <div class="flex-row">
                 <div class="flex-column">
                     <a href="steps/">
@@ -273,10 +295,42 @@
             </div>
         </div>
 
+        <div id="mobile-grid" class="grid-holder dis-none">
+          <p>mobile</p>
+            <div class="flex-row">
+                <div class="flex-column">
+                    <a href="steps/steps.png">
+                        <img class="hov-img" alt="Steps" src="steps/steps.png">
+                    </a>
+                    <a href="music/music-display.png"><img class="hov-img" alt="Music" src="music/music.png"></a>
+                </div>
+                <div class="flex-column">
+                    <a href="workouts/workouts.png"><img class="hov-img" alt="Workouts" src="workouts/workouts.png"></a>
+                    <a href="cycling/cycling.png"><img class="hov-img" alt="Cycling" src="cycling/cycling.png"></a>
+                </div>
+                <div class="flex-column">
+                    <a href="running/run.png"><img class="hov-img" alt="Running" src="running/run.png"></a>
+                    <a href="computer/comp.png"><img class="hov-img" alt="Computing" src="computer/comp.png"></a>
+                </div>
+
+            </div>
+        </div>
+
     </div>
 </body>
 
 <script>
+
+// if less than 1000 switch to Desktop index
+    if (window.innerWidth < 1100) {
+
+        var element1 = document.getElementById("desktop-grid");
+        element1.classList.add("dis-none");
+        var element2 = document.getElementById("mobile-grid");
+        element2.classList.remove("dis-none");
+
+    };
+
     // Wrap every .img in a div
     // 1. For all items with class .hov-img...
     // 2. Wrap them in a div

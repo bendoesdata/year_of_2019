@@ -170,7 +170,7 @@ function draw() {
     fill(20);
     textSize(16);
     textFont(regFont)
-    body = text('This by no means represents every physical activity I did in 2019. But the trouble with health tracking is that you have to remember to do it. For the first half of 2019, I tracked workouts rather sporadically. I started using Strava consistently to track workouts after June. So while I definitely took more hikes than is shown here, I think it is still representative of my activity for the yera. Moving to Boston seemed to be very good for my overall health, as you can see by the spike in activity on the left side of the circle.',
+    body = text('This by no means represents every physical activity I did in 2019. But the trouble with health tracking is that you have to remember to do it. For the first half of 2019, I tracked workouts rather sporadically. I started using Strava consistently to track workouts after June. So while I definitely took more hikes than is shown here, I think it is still representative of my activity for the year. Moving to Boston seemed to be very good for my overall health, as you can see by the spike in activity on the left side of the circle.',
         width / 6, height - 280, // position
         400, 400); // wrap size
 
